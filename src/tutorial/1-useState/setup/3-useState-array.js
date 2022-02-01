@@ -15,7 +15,17 @@ const UseStateArray = () => {
 
   const sortPeople=()=>{
     let tempArray = [...people];
-    tempArray.sort((a, b) => b.id-a.id);
+    tempArray.sort((a, b) => {
+      let fa = a.name.toLowerCase();
+      let fb = b.name.toLocaleLowerCase();
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
     console.log(tempArray)
     setPeople(tempArray);
   }
